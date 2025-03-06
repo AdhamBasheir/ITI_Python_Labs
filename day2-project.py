@@ -234,21 +234,18 @@ class CrowdfundingApp:
 
         if project:
             if project.user_email == user.email:
-                # Edit title
                 new_title = input('New Title (Leave empty to keep the current one or type "Exit" to cancel): ').strip().title()
                 if new_title == 'Exit':
                     return None
                 if new_title and not self.check_title(new_title):
                     project.title = new_title
 
-                # Edit details
                 new_details = input(f'New Details (Leave empty to keep the current one or type "Exit" to cancel): ').strip()
                 if new_details == 'Exit':
                     return None
                 if new_details:
                     project.details = new_details
 
-                # Edit target_amount
                 while True:
                     try:
                         new_target_amount_input = input(f'New Target Amount (EGP) (Leave empty to keep the current one or type "Exit" to cancel): ').strip()
@@ -266,7 +263,6 @@ class CrowdfundingApp:
                     except ValueError:
                         print('Invalid input, Please enter a valid number for the target amount')
 
-                # Edit start_date
                 new_start_date_input = input(f'New Start Date (DD-MM-YYYY) (Leave empty to keep the current one or "none" to skip, "exit" to cancel): ').strip()
                 if new_start_date_input.lower() == 'exit':
                     return None
@@ -277,7 +273,6 @@ class CrowdfundingApp:
                         print('Invalid date format. Please enter the date in DD-MM-YYYY format.')
                         return None
 
-                # Edit end_date
                 new_end_date_input = input(f'New End Date (DD-MM-YYYY) (Leave empty to keep the current one or "none" to skip, "exit" to cancel): ').strip()
                 if new_end_date_input.lower() == 'exit':
                     return None
